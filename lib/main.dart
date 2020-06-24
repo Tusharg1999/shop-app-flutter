@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop/screens/product.dart';
+import 'package:shop/infra/routingConstants.dart';
+import 'infra/router.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,9 +15,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.purple,
           accentColor: Colors.orange,
           fontFamily: 'Lato'),
-      home: SafeArea(
-        child: Product(),
-      ),
+      onGenerateRoute: getRoute,
+      initialRoute: ProductsRoute,
     );
   }
 }
