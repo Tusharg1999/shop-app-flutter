@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shop/data/productData.dart';
 import 'package:shop/models/productModel.dart';
+import 'package:shop/provider/products.dart';
 import 'package:shop/widgets/productItem.dart';
 
 class Product extends StatefulWidget {
@@ -11,7 +13,8 @@ class Product extends StatefulWidget {
 class _ProductState extends State<Product> {
   @override
   Widget build(BuildContext context) {
-    List<ProductModel> productList = getProductList();
+    final productData = Provider.of<ProductsProvider>(context);
+    final productList = productData.getList;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
