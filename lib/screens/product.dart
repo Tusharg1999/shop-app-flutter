@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/data/productData.dart';
-import 'package:shop/models/productModel.dart';
+import 'package:shop/provider/cart.dart';
 import 'package:shop/provider/products.dart';
+import 'package:shop/widgets/badge.dart';
 import 'package:shop/widgets/productItem.dart';
 
 class Product extends StatefulWidget {
@@ -19,6 +19,14 @@ class _ProductState extends State<Product> {
       child: Scaffold(
         appBar: AppBar(
           title: Text("Flipkart"),
+          leading: Consumer<Cart>(
+            builder: (context, cart, ch) => Badge(
+              child: ch,
+              value: cart.itemsLength.toString(),
+            ),
+            child:
+                IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {}),
+          ),
         ),
         body: Container(
           child: GridView.builder(
@@ -30,7 +38,9 @@ class _ProductState extends State<Product> {
                   childAspectRatio: 3 / 2),
               itemCount: productList.length,
               itemBuilder: (context, i) {
-                return ProductItem(product: productList[i]);
+                return ChangeNotifierProvider.value(
+                    value: productList[i],
+                    child: ProductItem(product: productList[i]));
               }),
         ),
       ),
