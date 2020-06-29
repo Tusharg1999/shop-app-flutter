@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop/infra/routingConstants.dart';
 import 'package:shop/infra/undefinedRoute.dart';
+import 'package:shop/screens/orderSummary.dart';
 import 'package:shop/screens/product.dart';
 import 'package:shop/screens/productInfo.dart';
 
@@ -14,6 +15,8 @@ Route<dynamic> getRoute(RouteSettings settings) {
           builder: (context) => ProductInfo(
                 products: productsArgument,
               ));
+    case OrderSummaryRoute:
+      return MaterialPageRoute(builder: (context) => OrderSummary());
     default:
       return MaterialPageRoute(builder: (context) => UndefinedRoute());
   }

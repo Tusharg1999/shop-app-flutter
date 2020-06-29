@@ -6,7 +6,7 @@ class ProductInfo extends StatelessWidget {
   ProductInfo({this.products});
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: Text(products.title),

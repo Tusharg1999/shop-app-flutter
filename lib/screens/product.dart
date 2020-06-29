@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/infra/routingConstants.dart';
 import 'package:shop/provider/cart.dart';
 import 'package:shop/provider/products.dart';
 import 'package:shop/widgets/badge.dart';
@@ -24,8 +25,11 @@ class _ProductState extends State<Product> {
               child: ch,
               value: cart.itemsLength.toString(),
             ),
-            child:
-                IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {}),
+            child: IconButton(
+                icon: Icon(Icons.shopping_cart),
+                onPressed: () {
+                  Navigator.pushNamed(context, OrderSummaryRoute);
+                }),
           ),
         ),
         body: Container(
