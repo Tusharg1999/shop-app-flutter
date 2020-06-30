@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/infra/routingConstants.dart';
+import 'package:shop/provider/orders.dart';
 import 'package:shop/provider/products.dart';
 import 'infra/router.dart';
 import 'provider/cart.dart';
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: ProductsProvider()),
-        ChangeNotifierProvider.value(value: Cart())
+        ChangeNotifierProvider.value(value: Cart()),
+        ChangeNotifierProvider.value(value: Orders()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
