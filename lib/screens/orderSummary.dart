@@ -46,8 +46,8 @@ class OrderSummary extends StatelessWidget {
               shrinkWrap: true,
               itemCount: cart.itemsLength,
               itemBuilder: (context, i) => CartListItem(
-                    cartItem: cart.items.values.elementAt(i),
-                  ))
+                  cartItem: cart.items.values.elementAt(i),
+                  productId: cart.items.keys.elementAt(i)))
         ],
       ),
     ));
