@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/infra/routingConstants.dart';
 import 'package:shop/provider/cart.dart';
 import 'package:shop/provider/products.dart';
+import 'package:shop/widgets/appDrawer.dart';
 import 'package:shop/widgets/badge.dart';
 import 'package:shop/widgets/productItem.dart';
 
@@ -18,19 +19,22 @@ class _ProductState extends State<Product> {
     final productList = productData.getList;
     return SafeArea(
       child: Scaffold(
+        drawer: AppDrawer(),
         appBar: AppBar(
           title: Text("Flipkart"),
-          leading: Consumer<Cart>(
-            builder: (context, cart, ch) => Badge(
-              child: ch,
-              value: cart.itemsLength.toString(),
+          actions: <Widget>[
+            Consumer<Cart>(
+              builder: (context, cart, ch) => Badge(
+                child: ch,
+                value: cart.itemsLength.toString(),
+              ),
+              child: IconButton(
+                  icon: Icon(Icons.shopping_cart),
+                  onPressed: () {
+                    Navigator.pushNamed(context, OrderSummaryRoute);
+                  }),
             ),
-            child: IconButton(
-                icon: Icon(Icons.shopping_cart),
-                onPressed: () {
-                  Navigator.pushNamed(context, OrderSummaryRoute);
-                }),
-          ),
+          ],
         ),
         body: Container(
           child: GridView.builder(

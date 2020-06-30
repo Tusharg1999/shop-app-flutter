@@ -8,8 +8,6 @@ class CartListItem extends StatelessWidget {
   CartListItem({@required this.cartItem, @required this.productId});
   @override
   Widget build(BuildContext context) {
-    print(productId);
-    print("productId");
     return Dismissible(
       key: ValueKey(cartItem.id),
       direction: DismissDirection.endToStart,
