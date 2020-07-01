@@ -22,6 +22,12 @@ class AppDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, RecentOrdersRoute);
             },
+          ),
+          ListTile(
+            title: Text("Products Mangement"),
+            onTap: () {
+              Navigator.pushNamed(context, ProductManagerRoute);
+            },
           )
         ],
       ),
